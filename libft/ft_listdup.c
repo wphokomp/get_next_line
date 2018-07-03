@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   ft_listdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2017/12/11 15:04:53 by wphokomp          #+#    #+#             */
+/*   Updated: 2017/12/11 15:04:56 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+char	**ft_listdup(char **list)
 {
-	int i;
+	int		i;
+	char	**ret;
 
-	if (list == NULL)
-		return (0);
+	ret = (char**)malloc(sizeof(ret) * (ft_strlen_point(list) + 1));
+	if (ret == NULL)
+		return (NULL);
+	ret[ft_strlen_point(list)] = 0;
 	i = 0;
 	while (list[i])
+	{
+		ret[i] = ft_strdup(list[i]);
 		i++;
-	return (i);
+	}
+	return (ret);
 }

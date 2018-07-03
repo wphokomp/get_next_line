@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_list_del_el.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/05/26 10:07:13 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/07/21 11:56:24 by wphokomp         ###   ########.fr       */
+/*   Created: 2017/12/11 15:04:15 by wphokomp          #+#    #+#             */
+/*   Updated: 2018/01/19 16:55:24 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_list_del_el(char **list, char *el)
 {
 	int		i;
-	size_t	n;
-	int		nev;
+	int		f;
 
 	i = 0;
-	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
-			|| str[i] == '\f' || str[i] == '\v' || str[i] == '\r')
-		i++;
-	nev = 1;
-	if (str[i] == '-' || str[i] == '+')
+	f = 0;
+	while (list[i])
 	{
-		if (str[i] == '-')
-			nev = -1;
+		if (ft_strcmp(list[i], el) == 0)
+		{
+			f = 1;
+			free(list[i]);
+			list[i] = NULL;
+		}
+		if (f)
+		{
+			list[i] = list[i + 1];
+		}
 		i++;
 	}
-	n = 0;
-	if (ft_strcmp(ft_strtrim(str), "9223372036854775807") == 0)
-		return (-1);
-	while (str[i] >= '0' && str[i] <= '9' && str[i])
+	if (f)
 	{
-		n = n * 10;
-		n = n + ((int)str[i] - '0');
-		i++;
+		free(list[i]);
+		list[i] = NULL;
 	}
-	return (n * nev);
+	return (f);
 }

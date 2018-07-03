@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   op.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2018/01/17 14:57:30 by wphokomp          #+#    #+#             */
+/*   Updated: 2018/01/17 14:58:25 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+int		op(char c)
 {
-	int i;
+	int		i;
 
-	if (list == NULL)
-		return (0);
-	i = 0;
-	while (list[i])
-		i++;
-	return (i);
+	i = -1;
+	while (OP[++i])
+	{
+		if (!ft_chrcmp(OP[i], c))
+			return (1);
+	}
+	return (0);
 }

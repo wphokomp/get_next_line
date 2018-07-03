@@ -6,7 +6,7 @@
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/05/27 10:28:21 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/07/18 08:06:20 by wphokomp         ###   ########.fr       */
+/*   Updated: 2017/08/07 14:41:17 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,9 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	size_t		i;
 	char		*d;
 	const char	*s;
 
-	i = 0;
 	d = (char*)dst;
 	s = (const char*)src;
 	if (s < d && d < (s + len))
@@ -28,10 +26,6 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 			len--;
 		}
 	else
-		while (i < len)
-		{
-			d[i] = s[i];
-			i++;
-		}
+		ft_memcpy(d, s, len);
 	return (d);
 }

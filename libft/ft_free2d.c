@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   ft_free2d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2017/12/11 15:04:02 by wphokomp          #+#    #+#             */
+/*   Updated: 2017/12/11 15:04:03 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+void	ft_free2d(void **arr)
 {
 	int i;
 
-	if (list == NULL)
-		return (0);
-	i = 0;
-	while (list[i])
-		i++;
-	return (i);
+	i = ft_strlen_point((char**)arr);
+	if (i == 0 && arr)
+		free(arr);
+	if (i == 0)
+		return ;
+	while (i > -1)
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i--;
+	}
+	free(arr);
 }

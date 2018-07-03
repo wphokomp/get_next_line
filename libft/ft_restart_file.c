@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   ft_restart_file.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2018/01/11 17:48:26 by wphokomp          #+#    #+#             */
+/*   Updated: 2018/01/11 17:56:06 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+int		ft_restart_file(int fd, char *file)
 {
-	int i;
-
-	if (list == NULL)
-		return (0);
-	i = 0;
-	while (list[i])
-		i++;
-	return (i);
+	close(fd);
+	fd = open(file, O_RDONLY);
+	return (fd);
 }

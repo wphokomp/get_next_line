@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   ft_strchr_indx.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2018/01/12 01:23:57 by wphokomp          #+#    #+#             */
+/*   Updated: 2018/01/12 06:48:02 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+int		ft_strchr_indx(const char *s, int c)
 {
-	int i;
+	int		i;
 
-	if (list == NULL)
-		return (0);
 	i = 0;
-	while (list[i])
+	while (s[i] != c && s[i])
 		i++;
 	return (i);
 }

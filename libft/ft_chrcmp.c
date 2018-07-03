@@ -1,25 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen_point.c                                  :+:      :+:    :+:   */
+/*   ft_chrcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/11 15:06:00 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/12/11 15:06:01 by wphokomp         ###   ########.fr       */
+/*   Created: 2017/08/13 09:12:00 by wphokomp          #+#    #+#             */
+/*   Updated: 2017/08/13 09:15:41 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_strlen_point(char **list)
+int		ft_chrcmp(char a, char b)
 {
-	int i;
-
-	if (list == NULL)
+	if (a == b)
 		return (0);
-	i = 0;
-	while (list[i])
-		i++;
-	return (i);
+	return ((int)(a - b));
 }

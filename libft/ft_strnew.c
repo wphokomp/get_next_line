@@ -6,7 +6,7 @@
 /*   By: wphokomp <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/06/07 15:02:21 by wphokomp          #+#    #+#             */
-/*   Updated: 2017/07/18 08:21:49 by wphokomp         ###   ########.fr       */
+/*   Updated: 2017/09/07 12:38:41 by wphokomp         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,9 @@
 
 char	*ft_strnew(size_t size)
 {
-	return (ft_memalloc(size + 1));
+	char	*ret;
+
+	ret = ft_memalloc(size + 1);
+	ret[size] = 0;
+	return (ret);
 }
